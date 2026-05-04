@@ -2,12 +2,12 @@ FROM python:3.14-slim
 
 WORKDIR /app
 
-# 🔥 Install required build tools
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    curl \
+    build-essential gcc curl \
     && rm -rf /var/lib/apt/lists/*
+
+# 🔥 ADD THIS LINE (IMPORTANT)
+ENV PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
 COPY . .
 
