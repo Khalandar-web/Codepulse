@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#fff6f4",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-fixed-dim": "#ffb59d",
+                    "primary-fixed": "#dae1ff",
+                    "surface-container-high": "#e7e8e9",
+                    "inverse-primary": "#b3c5ff",
+                    "primary-container": "#0066ff",
+                    "surface-container-low": "#f3f4f5",
+                    "on-tertiary-fixed-variant": "#832600",
+                    "surface-container": "#edeeef",
+                    "surface": "#f8f9fa",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#cc4204",
+                    "inverse-on-surface": "#f0f1f2",
+                    "surface-bright": "#f8f9fa",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdbd0",
+                    "primary": "#0050cb",
+                    "on-tertiary-fixed": "#390c00",
+                    "surface-dim": "#d9dadb",
+                    "surface-tint": "#0054d6",
+                    "outline": "#727687",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-container": "#f8f7ff",
+                    "on-surface": "#191c1d",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "on-surface-variant": "#424656",
+                    "on-background": "#191c1d",
+                    "secondary-container": "#6cf8bb",
+                    "secondary": "#006c49",
+                    "on-primary-fixed": "#001849",
+                    "background": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002113",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c2c6d8",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "inverse-surface": "#2e3132",
+                    "error": "#ba1a1a",
+                    "tertiary": "#a33200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "code-md": ["JetBrains Mono", "monospace"],
+                    "display-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "body-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "code-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .liquid-gradient {
+            background: linear-gradient(135deg, #0050cb 0%, #0066ff 50%, #4edea3 100%);
+            background-size: 200% 200%;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-lg border-b border-white/20 dark:border-slate-800/50 shadow-[0_30px_30px_rgba(0,34,102,0.04)]">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-[1440px] mx-auto font-['Manrope'] antialiased tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-blue-600 dark:text-blue-400">CodePulse</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1 font-semibold" href="#">Overview</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors" href="#">Performance</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors" href="#">Testing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-secondary-container/30 px-3 py-1.5 rounded-full border border-secondary-container/50">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-label-md text-on-secondary-container">Logged in as raza</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Left Panel: Source Input -->
+<section class="flex-1 border-r border-outline-variant bg-surface-container-low flex flex-col relative">
+<!-- Source Header -->
+<div class="px-6 py-4 flex justify-between items-center bg-white/50 backdrop-blur-md">
+<h2 class="font-headline-md text-on-surface">Source Input</h2>
+<div class="flex bg-surface-container-high rounded-lg p-1 gap-1">
+<button class="px-4 py-1.5 rounded-md bg-white shadow-sm font-label-md text-primary transition-all">Code Editor</button>
+<button class="px-4 py-1.5 rounded-md hover:bg-white/50 font-label-md text-on-surface-variant transition-all">Project Upload</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-4 space-y-6">
+<!-- Section 1: Analysis Profile -->
+<div class="glass-card rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-label-md text-on-surface">Analysis Profile</h3>
+<p class="text-body-sm text-on-surface-variant">Optimization depth and resource allocation</p>
+</div>
+<div class="relative">
+<select class="appearance-none bg-white border border-outline-variant rounded-lg px-4 py-1.5 pr-8 font-label-md focus:ring-2 focus:ring-primary focus:outline-none cursor-pointer">
+<option>Fast</option>
+<option>Balanced</option>
+<option>Deep</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Code Editor Block -->
+<div class="flex-1 flex flex-col glass-card rounded-xl border border-outline-variant overflow-hidden shadow-lg min-h-[400px]">
+<div class="flex items-center justify-between px-4 py-2 bg-surface-container-highest border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="font-label-md font-code-md text-on-surface">buffer.py</span>
+</div>
+<span class="font-label-md text-on-surface-variant px-2 py-0.5 rounded bg-surface-container-high">Python</span>
+</div>
+<div class="flex-1 p-4 bg-[#f1f3f5] font-code-md text-code-md leading-relaxed overflow-auto">
+<pre class="text-on-surface"><span class="text-tertiary">def</span> <span class="text-primary">process_stream</span>(data_chunk):
+    <span class="text-outline">"""Processes incoming byte buffer"""</span>
+    buffer_size = <span class="text-secondary">1024</span>
+    processed = []
+    
+    <span class="text-tertiary">for</span> item <span class="text-tertiary">in</span> data_chunk:
+        <span class="text-tertiary">if</span> <span class="text-primary">len</span>(processed) &gt;= buffer_size:
+            <span class="text-primary">flush_to_storage</span>(processed)
+            processed = []
+        processed.<span class="text-primary">append</span>(item.strip())
+        
+    <span class="text-tertiary">return</span> <span class="text-primary">sum</span>(processed)
+
+<span class="text-tertiary">class</span> <span class="text-secondary">StreamHandler</span>:
+    <span class="text-tertiary">def</span> <span class="text-primary">__init__</span>(<span class="text-on-surface">self</span>):
+        <span class="text-on-surface">self</span>.active = <span class="text-secondary">True</span>
+</pre>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-6 py-4 bg-white/80 backdrop-blur-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-sm">Live editor / Monaco / Ready for analysis</span>
+</div>
+<button class="liquid-gradient text-white px-8 py-3 rounded-xl font-label-md shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                    Run Analysis
+                </button>
+</div>
+</section>
+<!-- Right Panel: Analysis Report -->
+<section class="flex-1 bg-surface-container-lowest flex flex-col">
+<div class="px-6 py-4 flex flex-wrap gap-2 border-b border-outline-variant bg-white">
+<span class="px-3 py-1 rounded-full bg-surface-container text-outline font-label-md cursor-not-allowed">Execution traces</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-outline font-label-md cursor-not-allowed">AI insights</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-outline font-label-md cursor-not-allowed">Test coverage</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center p-xl text-center">
+<div class="relative w-48 h-48 mb-8 flex items-center justify-center">
+<!-- Placeholder for Floating Icon -->
+<div class="absolute inset-0 bg-primary/5 rounded-full animate-pulse"></div>
+<span class="material-symbols-outlined text-primary text-[80px]" style="font-variation-settings: 'wght' 200;">analytics</span>
+<div class="absolute -top-2 -right-2 glass-card p-3 rounded-full shadow-md">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+</div>
+</div>
+<h1 class="text-display-lg font-display-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+                    Ready to Analyze
+                </h1>
+<p class="max-w-md text-body-lg text-on-surface-variant leading-relaxed">
+                    Submit code or upload a project archive to unlock execution logs, tests, performance metrics, and AI-generated recommendations.
+                </p>
+<div class="mt-12 grid grid-cols-2 gap-4 w-full max-w-lg">
+<div class="p-6 rounded-2xl border border-outline-variant/50 bg-surface text-left group hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary mb-2">speed</span>
+<h4 class="font-label-md text-on-surface">Real-time Metrics</h4>
+<p class="text-body-sm text-on-surface-variant">Memory profiling and bottleneck detection.</p>
+</div>
+<div class="p-6 rounded-2xl border border-outline-variant/50 bg-surface text-left group hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-tertiary mb-2">security</span>
+<h4 class="font-label-md text-on-surface">Vulnerability Scan</h4>
+<p class="text-body-sm text-on-surface-variant">OWASP Top 10 and CVE identification.</p>
+</div>
+</div>
+</div>
+<!-- Background Aesthetic Decals -->
+<div class="absolute bottom-0 right-0 p-lg opacity-5 pointer-events-none overflow-hidden">
+<img class="w-[600px] grayscale rotate-12" data-alt="A highly detailed schematics diagram of a neural network architecture with glowing connection nodes and translucent data pipelines. The background is a crisp, sterile white, reflecting a professional and high-tech laboratory environment. Soft teal and deep blue accents emphasize technical precision, while the overall mood remains airy and minimal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSlam7jxTU54jLmPE40xCjVxjxAuw9YM-L4_HKF1Hbov--CzfUgfMNxZdT1abmUKamCfGJ2Q0fpBQ9b7529qhbUEdmR2iIgKj-MkLo6ZhuNuKu06ku1gksOybXsiWZAvA6VO2j7kUnqtRLj4tSwFJXLxKGDtPjaGB--S_dy9or7pqzNHHjE0WkciUPIIwzIz7KNQs4S4YF9LADP-OOgfWVa8x2SybbHOGTvC-Pvg_VzURUivlNksGvSgh2C2rO64ibx5ZhoNZQTkfz"/>
+</div>
+</section>
+</main>
+</body></html>

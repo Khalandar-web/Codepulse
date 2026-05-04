@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-surface": "#1b1b1d",
+                        "inverse-on-surface": "#f3f0f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed": "#271901",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-container": "#57657a",
+                        "primary": "#000000",
+                        "surface-variant": "#e4e2e4",
+                        "surface-container-low": "#f6f3f5",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#98805d",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-container": "#f0edef",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#515f74",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#fcdeb5",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-background": "#1b1b1d",
+                        "primary-container": "#131b2e",
+                        "surface-dim": "#dcd9db",
+                        "surface": "#fcf8fa",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#eae7e9",
+                        "surface-bright": "#fcf8fa",
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d5e3fc",
+                        "outline": "#76777d",
+                        "on-primary-container": "#7c839b",
+                        "inverse-surface": "#303032",
+                        "background": "#fcf8fa",
+                        "tertiary-container": "#271901"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin": "40px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "md": "16px",
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "xl": "32px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h3": ["Manrope"],
+                        "h2": ["Manrope"],
+                        "mono": ["Fira Code"]
+                    },
+                    "fontSize": {
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "600"}],
+                        "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+        }
+        .code-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .code-scroll::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        .code-scroll::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center w-full px-6 h-16 sticky top-0 z-50">
+<div class="flex items-center gap-xl"><button class="flex items-center gap-xs px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors text-slate-600 font-manrope text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span>Back to Dashboard</span>
+</button>
+<span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white font-h1">CodePulse</span>
+<nav class="flex gap-6 items-center h-full">
+<a class="font-manrope text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Performance</a>
+<a class="font-manrope text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Testing</a>
+</nav>
+</div>
+<div class="flex items-center gap-md"><a class="font-manrope text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors mr-2" href="#">Overview</a>
+<div class="flex items-center gap-sm pr-md border-r border-slate-200">
+<span class="text-label-md font-medium text-on-surface">DevAdmin</span>
+<span class="material-symbols-outlined text-slate-500" data-icon="account_circle">account_circle</span>
+</div>
+<button class="flex items-center gap-xs px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors text-slate-600 font-manrope text-sm font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</header>
+<div class="flex h-[calc(100vh-4rem)] overflow-hidden">
+<!-- Main Dashboard Canvas (Full Width) -->
+<main class="flex-1 overflow-y-auto p-gutter bg-background">
+<div class="max-w-[1440px] mx-auto space-y-gutter">
+<!-- Layout Grid: Bento Style -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Source Code Preview (5 cols) -->
+<section class="col-span-12 lg:col-span-5 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 overflow-hidden flex flex-col h-full min-h-[500px] custom-shadow">
+<div class="flex items-center justify-between px-md py-sm bg-surface-container-low border-b border-slate-200">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="description">description</span>
+<span class="text-label-sm font-semibold">buffer.py</span>
+</div>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-slate-300"></div>
+<div class="w-3 h-3 rounded-full bg-slate-300"></div>
+<div class="w-3 h-3 rounded-full bg-slate-300"></div>
+</div>
+</div>
+<div class="flex-1 p-6 overflow-auto code-scroll bg-white">
+<pre class="font-mono text-body-sm text-slate-700 leading-relaxed"><code><span class="text-blue-600">import</span> threading
+<span class="text-blue-600">import</span> collections
+
+<span class="text-blue-600">class</span> <span class="text-teal-600">ThreadSafeBuffer</span>:
+    <span class="text-blue-600">def</span> <span class="text-teal-600">__init__</span>(self, maxlen=None):
+        self._buffer = collections.deque(maxlen=maxlen)
+        self._lock = threading.Lock()
+
+    <span class="text-blue-600">def</span> <span class="text-teal-600">append</span>(self, item):
+        <span class="text-blue-600">with</span> self._lock:
+            self._buffer.append(item)
+
+    <span class="text-blue-600">def</span> <span class="text-teal-600">pop</span>(self):
+        <span class="text-blue-600">with</span> self._lock:
+            <span class="text-blue-600">if</span> <span class="text-blue-600">not</span> self._buffer:
+                <span class="text-blue-600">return</span> <span class="text-blue-600">None</span>
+            <span class="text-blue-600">return</span> self._buffer.popleft()
+
+<span class="text-gray-400"># AI optimized logic integrated
+# Analysis shows 100% thread safety</span></code></pre>
+</div>
+</div>
+</section>
+<!-- Right Column: Analytics & Metrics (7 cols) -->
+<section class="col-span-12 lg:col-span-7 flex flex-col gap-gutter">
+<!-- Top Metrics Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Health Score (Primary Metric) -->
+<div class="md:col-span-1 bg-surface-container-lowest rounded-xl border border-slate-200 p-lg flex flex-col items-center justify-center relative overflow-hidden custom-shadow">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-slate-300 text-6xl" data-icon="bolt">bolt</span>
+</div>
+<h4 class="text-label-sm font-semibold text-slate-500 mb-md uppercase tracking-wider">Health Score</h4>
+<div class="relative flex items-center justify-center w-32 h-32 rounded-full border-8 border-slate-100">
+<svg class="absolute inset-0 w-32 h-32 transform -rotate-90">
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.8" stroke-dashoffset="7.0" stroke-width="8"></circle>
+</svg>
+<span class="text-h1 font-bold">98</span>
+</div>
+<p class="text-label-sm text-secondary-container bg-primary-container px-2 py-1 rounded-full mt-md">Optimized</p>
+</div>
+<!-- Stat Cards Grid -->
+<div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 p-md custom-shadow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-slate-100 rounded-lg" data-icon="analytics">analytics</span>
+<span class="text-xs text-green-600 font-bold">+1.2%</span>
+</div>
+<div>
+<p class="text-label-sm text-slate-500 mb-1">Static Score</p>
+<h3 class="text-h3">99 <span class="text-label-md text-slate-400">/ 100</span></h3>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 p-md custom-shadow flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary p-2 bg-slate-100 rounded-lg" data-icon="verified">verified</span>
+<span class="text-xs text-slate-500 font-bold">100%</span>
+</div>
+<div>
+<p class="text-label-sm text-slate-500 mb-1">Tests Passed</p>
+<h3 class="text-h3">16 <span class="text-label-md text-slate-400">/ 16</span></h3>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl border border-slate-200 p-md custom-shadow flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="p-3 bg-green-50 text-green-700 rounded-full">
+<span class="material-symbols-outlined" data-icon="shield_check" data-weight="fill">shield</span>
+</div>
+<div>
+<p class="text-label-sm text-slate-500">Security Risk</p>
+<h3 class="text-h3">Safe State</h3>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-sm text-green-600 font-bold">Verified AI</p>
+<p class="text-[10px] text-slate-400">Scan: 2m ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Execution Output Console -->
+<div class="bg-slate-900 rounded-xl border border-slate-800 flex flex-col overflow-hidden h-64 shadow-2xl">
+<div class="flex items-center gap-2 px-md py-sm bg-slate-800/50 border-b border-slate-700">
+<span class="material-symbols-outlined text-sm text-slate-400" data-icon="terminal">terminal</span>
+<span class="text-label-sm text-slate-300 font-mono">Execution Output — pytest buffer.py</span>
+</div>
+<div class="flex-1 p-4 font-mono text-[13px] text-slate-400 overflow-auto code-scroll">
+<p class="text-slate-500">platform darwin -- Python 3.9.12, pytest-7.1.1, pluggy-1.0.0</p>
+<p>rootdir: /Users/dev/codepulse/analysis</p>
+<p class="mt-2 text-blue-400">collecting ... 16 items found</p>
+<p class="mt-1">test_buffer.py <span class="text-green-500">................</span> <span class="text-green-500">[100%]</span></p>
+<p class="mt-2 text-green-500 font-bold">16 passed in 0.42s</p>
+<p class="mt-1 text-slate-500">--- Generating AI Posture Report ---</p>
+<p class="mt-1 text-slate-300 animate-pulse">Processing analysis tokens...</p>
+</div>
+</div>
+</section>
+</div>
+<!-- AI Assessment Section (Bottom Wide) -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-slate-200 custom-shadow overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/3 bg-primary-container p-lg flex flex-col justify-center text-on-primary">
+<span class="material-symbols-outlined text-4xl mb-md text-primary-fixed-dim" data-icon="psychology">psychology</span>
+<h3 class="text-h3 mb-sm">AI Assessment</h3>
+<p class="text-body-sm opacity-80 leading-relaxed">Comprehensive qualitative analysis of architectural integrity and runtime performance benchmarks.</p>
+</div>
+<div class="md:w-2/3 p-lg flex flex-col gap-md">
+<div class="space-y-md">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<p class="font-semibold text-label-md">Performance Posture</p>
+<p class="text-body-sm text-slate-600">The implementation of `threading.Lock` within `collections.deque` provides optimal thread safety with minimal overhead. Resource contention is estimated at &lt; 2% under peak load.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="gpp_good">gpp_good</span>
+<div>
+<p class="font-semibold text-label-md">Security Posture</p>
+<p class="text-body-sm text-slate-600">Zero vulnerability patterns detected. Logic flow adheres to secure coding standards for data persistence and concurrent access. No external dependencies injected.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 custom-shadow p-lg relative overflow-hidden flex flex-col justify-end">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-10" data-alt="A highly detailed 3D abstract visualization of neural network pathways glowing with soft white and subtle slate blue tones. The composition is airy and clean, reflecting a professional enterprise software environment. Micro-particles of data light drift through a structured grid-like background, suggesting high-speed computation and data analysis in a modern tech-forward laboratory setting." src="https://lh3.googleusercontent.com/aida/ADBb0uh1imPi8Hn-J7n5d-3QpUtHGA3he5-hMJDeMCIwtYma_reArxatySttJ3_iRepUO5C7gZ2p99hdZsqbfefqmjer--XsE6fx886sDVvl2zNOXB0BnLMzMzbN-8gmmhWiG89WcZQ2aNvyeARftarDafzf1hZ_KK7NlmuJhbWdfensigdtyAvUJqusiUG66fiM5xYBMFGo4SDJ0RrCbjnDMtzI-VjEhy3DmSjHHeTemI6p22dl1oAAF7AdZm8bPkTY95ntundLP9UNtA"/>
+<div class="relative z-10">
+<h4 class="text-label-sm font-bold text-slate-500 uppercase tracking-widest mb-sm">System Status</h4>
+<p class="text-h3 text-slate-900 mb-md">All Engines Operational</p>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-sm font-semibold hover:opacity-90 transition-opacity">
+                                Deploy Analysis
+                            </button>
+</div>
+</div>
+</section>
+<!-- Data Visualization Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 p-lg custom-shadow h-64 overflow-hidden group">
+<div class="flex justify-between items-center mb-md">
+<h4 class="text-label-sm font-bold text-slate-500">Traffic Analysis</h4>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="open_in_full">open_in_full</span>
+</div>
+<img alt="" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" data-alt="A sophisticated data visualization dashboard showing sleek, dark blue and gray trend lines against a pristine white background. Minimalist bar charts and scatter plots are arranged in a clean, professional layout. The lighting is bright and uniform, emphasizing a light-themed corporate interface designed for high-end technical analytics and software performance tracking." src="https://lh3.googleusercontent.com/aida/ADBb0uh18plxb3YS_mGzeGc2-dXAsifDEdoUw-5R7iBvdikCmKVA8vftBdEB6bV_b23JPt4kaVa5BXjiVPCX10M7vWm_dO8DarlBm2A1UrBke0IqkpN0q35D64u45Fr5S-m2vL7Og1TR9ivHPqwtWrNjWAimplzeoK8lYgFKWTNs3-maVSV6wsamNtRthOrPKFIlf7CqOdiBYQFQnrS_4tsIJriVob-N73W2Kqyx-3-JDPZ5VZxcshnEz86cwtuPeu5y9Hmbx0JkjPPd8w"/>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-slate-200 p-lg custom-shadow h-64 overflow-hidden group">
+<div class="flex justify-between items-center mb-md">
+<h4 class="text-label-sm font-bold text-slate-500">Resource Distribution</h4>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer" data-icon="open_in_full">open_in_full</span>
+</div>
+<img alt="" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" data-alt="A conceptual digital art piece depicting complex architectural blueprints for a software engine, rendered in clean, sharp lines of deep navy and soft gray on a brilliant white surface. The aesthetic is extremely professional and modern, using subtle shadows and high-key lighting to create a sense of depth and precision, perfect for an enterprise-level technology dashboard." src="https://lh3.googleusercontent.com/aida/ADBb0uiU-1hL98bwieVje4cNKbxxBLpS1GvLhrJl0hbVvFBddT4dBYikM836DSiNTZFVv00oYc51BivOZKXJMsYFGMGGgCj7NWPGclS6MXucMNv2tk-AjdAmXu3bWZqab5pghotpDoyDvUhI0kGwB6r4FFryvqx2BkBVRfrtL7f7Xm7J0sUQ1JQSX5SMYwLWcl8mn-NKDJC62So005pprPH9rtpNEo1CXQniTtx5zacef2kfAmf2NL78I0NglWczgSRkVUExdSmkhP6Ouw"/>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

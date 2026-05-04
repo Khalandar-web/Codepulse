@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fcf8fa",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#f0edef",
+                    "tertiary-fixed": "#fcdeb5",
+                    "outline-variant": "#c6c6cd",
+                    "surface-dim": "#dcd9db",
+                    "tertiary": "#000000",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#eae7e9",
+                    "surface-variant": "#e4e2e4",
+                    "on-background": "#1b1b1d",
+                    "surface-container-highest": "#e4e2e4",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "surface-bright": "#fcf8fa",
+                    "on-secondary-fixed": "#0b1c30",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-tertiary-fixed": "#271901",
+                    "on-secondary-container": "#54647a",
+                    "on-surface": "#1b1b1d",
+                    "outline": "#76777d",
+                    "on-primary-container": "#7c839b",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-tertiary-container": "#98805d",
+                    "surface-container-low": "#f6f3f5",
+                    "tertiary-container": "#271901",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f3f0f2",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#bec6e0",
+                    "primary": "#000000",
+                    "on-primary-fixed": "#131b2e",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "primary-fixed": "#dae2fd",
+                    "surface": "#fcf8fa",
+                    "secondary-container": "#d0e1fb",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#303032",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#505f76",
+                    "on-surface-variant": "#45464d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#131b2e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "base": "8px",
+                    "2xl": "48px",
+                    "margin": "32px",
+                    "xl": "32px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "code-md": ["monospace"],
+                    "label-sm": ["Manrope"],
+                    "h1": ["Manrope"],
+                    "h3": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "h2": ["Manrope"]
+            },
+            "fontSize": {
+                    "code-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h3": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Main Wrapper -->
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-margin h-16 bg-white/80 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<h1 class="text-lg font-bold tracking-tight text-primary leading-none">CodePulse</h1>
+<p class="font-manrope text-[10px] font-bold uppercase tracking-widest text-secondary mt-0.5">Enterprise Hub</p>
+</div>
+<div class="hidden md:flex relative w-64 lg:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-surface-container border-none rounded-lg py-1.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-colors" placeholder="Search analysis reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-secondary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer">
+<img alt="User profile" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwg2Hgu_TtIKUoTmwd4TE5FNFYbwGEvQNsjJpOyvLGCgzrAGk9Y259RurVzmWTPuZASQkB33-rml2B79EoTeUYoFl5QQYDyjNKuUvXnOziH-9NMcykMWC-66QXsEV3rc4EeZRu7r7tSn7aFNkrZ00ygdOKuylCtAx85OE_eVv3AYSWv5TEYj-eoqjljZcdKdCEzFDgE-A9ferRjpbqBPJYyb5QaWiuBGxG0QpV3Fn15W9UmR0GtbB1OAU1kqmzKIfYoArbQrFdtnM"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-gutter bg-background no-scrollbar pb-2xl">
+<div class="max-w-6xl mx-auto space-y-lg">
+<!-- Hero Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md pb-md border-b border-outline-variant">
+<div>
+<nav class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-secondary mb-2">
+<span class="hover:text-primary cursor-pointer">Dashboard</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary">Analysis</span>
+</nav>
+<h2 class="font-h1 text-h1 text-on-background">CodePulse Analysis Dashboard</h2>
+<p class="font-body-lg text-secondary mt-1">Project: <span class="font-semibold text-primary">Uno.zip</span> • Last analyzed 2 minutes ago</p>
+</div>
+<div class="flex gap-md">
+<button class="flex items-center gap-2 px-4 py-2 bg-white text-primary border border-outline-variant font-label-sm rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export PDF
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary font-label-sm rounded-lg hover:opacity-90 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                        Initialize Scan
+                    </button>
+</div>
+</div>
+<!-- Redesigned Main Content Area -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Source -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Source Input Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-primary">source</span>
+<h3 class="font-h3 text-h3">Source Input</h3>
+</div>
+<div class="flex items-center p-md bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="p-2 bg-white rounded-md border border-outline-variant mr-4">
+<span class="material-symbols-outlined text-3xl text-primary">folder_zip</span>
+</div>
+<div class="flex-1">
+<p class="font-body-lg font-bold text-primary">Uno.zip</p>
+<p class="font-label-sm text-secondary">2.6 MB • 17 files</p>
+</div>
+<span class="material-symbols-outlined text-green-600">verified</span>
+</div>
+<!-- Mini Server Status -->
+<div class="mt-lg pt-lg border-t border-surface-container">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">dns</span>
+<p class="font-label-sm uppercase text-secondary">Server Status</p>
+</div>
+<span class="flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase rounded-full">
+<span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Live
+                                </span>
+</div>
+<div class="flex justify-between text-sm py-1">
+<span class="text-secondary">Node.js App</span>
+<span class="text-primary font-semibold">Port 9101</span>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-surface-container flex flex-col gap-sm">
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-primary border border-outline-variant font-label-sm rounded-lg hover:bg-surface-container transition-colors w-full">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+      Go to App
+    </button>
+<button class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-primary border border-outline-variant font-label-sm rounded-lg hover:bg-surface-container transition-colors w-full">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+      Start App
+    </button>
+</div>
+</div>
+</div><div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<div class="flex items-center gap-2 mb-lg">
+<span class="material-symbols-outlined text-primary">folder_open</span>
+<h3 class="font-h3 text-h3">Zip Contents</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">javascript</span>
+<span class="text-sm font-medium text-on-surface">authController.js</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">12 KB</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">settings_input_component</span>
+<span class="text-sm font-medium text-on-surface">server.js</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">8 KB</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">description</span>
+<span class="text-sm font-medium text-on-surface">package.json</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">2 KB</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">info</span>
+<span class="text-sm font-medium text-on-surface">README.md</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">4 KB</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">database</span>
+<span class="text-sm font-medium text-on-surface">db.sql</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">45 KB</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low rounded-lg transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors text-xl">css</span>
+<span class="text-sm font-medium text-on-surface">styles.css</span>
+</div>
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">18 KB</span>
+</div>
+</div>
+<button class="w-full mt-lg pt-md border-t border-surface-container text-primary font-label-sm hover:underline flex justify-center items-center gap-1">
+    View all 17 files <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Right Column: High-Fidelity Data Visualization Cards & Overall Assessment -->
+<div class="col-span-12 lg:col-span-8 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg bg-primary text-on-primary flex justify-between items-center">
+<div>
+<h3 class="font-h2 text-h2 text-white">Analysis Intelligence</h3>
+<p class="text-slate-400 font-label-sm mt-1 uppercase tracking-widest">Real-time code metrics</p>
+</div>
+<span class="material-symbols-outlined text-white/20 text-5xl">insights</span>
+</div>
+<!-- High Fidelity Visualization Grid -->
+<div class="p-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Overall Health -->
+<div class="col-span-1 md:col-span-2 lg:col-span-2 p-6 bg-white rounded-xl border border-outline-variant flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="font-label-sm text-secondary uppercase tracking-widest">Overall Health</p>
+<h4 class="text-4xl font-extrabold text-primary">91.4%</h4>
+</div>
+<div class="p-2 bg-green-50 text-green-600 rounded-lg">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full mb-2">
+<div class="bg-primary h-full w-[91.4%] rounded-full shadow-inner"></div>
+</div>
+<p class="text-[11px] text-secondary">Optimal health detected. Security risks are the primary drag on score.</p>
+</div>
+<!-- Subtle Background Pattern -->
+<div class="absolute right-[-10%] bottom-[-10%] opacity-5">
+<span class="material-symbols-outlined text-[160px]">shield_heart</span>
+</div>
+</div>
+<!-- Static Score -->
+<div class="p-6 bg-white rounded-xl border border-outline-variant flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">data_thresholding</span>
+<div>
+<p class="font-label-sm text-secondary uppercase">Static Score</p>
+<p class="text-3xl font-bold">93</p>
+</div>
+<div class="text-[10px] text-primary font-bold bg-primary-fixed px-2 py-1 rounded inline-block w-fit">TOP 5% OF REPOS</div>
+</div>
+<!-- Tests Passed -->
+<div class="p-6 bg-white rounded-xl border border-outline-variant flex flex-col gap-3">
+<span class="material-symbols-outlined text-green-600">check_circle</span>
+<div>
+<p class="font-label-sm text-secondary uppercase">Tests Passed</p>
+<p class="text-3xl font-bold text-green-600">16/16</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-1">
+<div class="w-4 h-4 rounded-full bg-green-200"></div>
+<div class="w-4 h-4 rounded-full bg-green-300"></div>
+<div class="w-4 h-4 rounded-full bg-green-400"></div>
+</div>
+<span class="text-[10px] font-bold text-green-600">100% COVERAGE</span>
+</div>
+</div>
+<!-- Security Risk -->
+<div class="p-6 bg-error-container/20 rounded-xl border border-error/20 flex flex-col gap-3">
+<span class="material-symbols-outlined text-error">gpp_maybe</span>
+<div>
+<p class="font-label-sm text-error uppercase">Security Risk</p>
+<p class="text-3xl font-bold text-error">High</p>
+</div>
+<p class="text-[11px] text-on-error-container">2 Vulnerabilities found in 'auth' controller dependencies.</p>
+</div>
+<!-- Perf Grade -->
+<div class="p-6 bg-white rounded-xl border border-outline-variant flex flex-col gap-3">
+<span class="material-symbols-outlined text-secondary">speed</span>
+<div>
+<p class="font-label-sm text-secondary uppercase">Perf Grade</p>
+<p class="text-3xl font-bold">B</p>
+</div>
+<div class="flex flex-col gap-1">
+<div class="w-full bg-slate-100 h-1.5 rounded-full">
+<div class="bg-secondary h-full w-[78%] rounded-full"></div>
+</div>
+<span class="text-[10px] text-secondary font-bold">STABLE PERFORMANCE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Overall Assessment Block (Moved here) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="font-h3 text-h3 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+                            Overall Assessment
+                        </h3>
+<div class="space-y-4 font-body-md text-on-surface-variant leading-relaxed">
+<p>
+                                The codebase for <span class="font-bold text-primary">Uno.zip</span> exhibits a highly professional and modular design. Component isolation is maintained across the 17 files.
+                            </p>
+<div class="p-md bg-surface-container-low rounded-lg border-l-4 border-primary">
+<p class="font-label-sm text-primary uppercase mb-1">Debt Summary</p>
+<p class="text-sm">
+                                    Structural integrity is sound (Static Score: 93). Security layer requires priority attention in the next sprint.
+                                </p>
+</div>
+<p class="text-sm italic text-secondary">
+                                Optimization recommended for client-side package bundles (Grade B).
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Information -->
+<footer class="max-w-6xl mx-auto w-full px-gutter py-lg border-t border-outline-variant flex justify-between items-center text-xs text-secondary">
+<p>© 2024 CodePulse Intelligence Systems. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Security Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</footer>
+</div>
+</body></html>

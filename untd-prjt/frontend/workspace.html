@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#76777d",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-tertiary-container": "#98805d",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-background": "#1b1b1d",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "on-surface-variant": "#45464d",
+                      "on-primary": "#ffffff",
+                      "primary-container": "#f0f4ff",
+                      "on-primary-container": "#131b2e",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#dae2fd",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "on-surface": "#1b1b1d",
+                      "on-tertiary-fixed": "#271901",
+                      "surface-tint": "#565e74",
+                      "surface-container": "#f0edef",
+                      "secondary-fixed": "#d5e3fc",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-secondary-fixed-variant": "#3a485b",
+                      "secondary-fixed-dim": "#b9c7df",
+                      "on-secondary-container": "#57657a",
+                      "tertiary": "#000000",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-container-high": "#eae7e9",
+                      "surface-bright": "#fcf8fa",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#fcdeb5",
+                      "surface-container-low": "#f6f3f5",
+                      "on-secondary-fixed": "#0d1c2e",
+                      "inverse-primary": "#bec6e0",
+                      "surface-variant": "#e4e2e4",
+                      "primary": "#000000",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#d5e3fc",
+                      "background": "#fcf8fa",
+                      "on-primary-fixed": "#131b2e",
+                      "inverse-surface": "#303032",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#fcf8fa",
+                      "surface-dim": "#dcd9db",
+                      "outline-variant": "#c6c6cd",
+                      "tertiary-container": "#271901",
+                      "secondary": "#515f74"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "margin": "40px",
+                      "gutter": "24px",
+                      "xxl": "48px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sm": "12px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "h2": ["Manrope"],
+                      "h1": ["Manrope"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "h3": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h2": ["32px", {"lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fcf8fa;
+            color: #1b1b1d;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased min-h-screen flex flex-col bg-surface">
+<!-- TopNavBar -->
+<nav class="bg-white border-b border-surface-container-highest z-50 flex justify-between items-center w-full px-12 py-4 h-20 sticky top-0 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-primary tracking-tighter">CodePulse</span>
+</div>
+<div class="flex items-center">
+<button class="px-6 py-2.5 bg-on-background text-white font-semibold rounded hover:bg-opacity-90 transition-all active:scale-[0.98] text-sm">
+                Logout
+            </button>
+</div>
+</nav>
+<main class="flex-grow container mx-auto px-12 py-20 max-w-7xl">
+<!-- Hero Section -->
+<header class="mb-24">
+<div class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary-container border border-blue-100 mb-8">
+<span class="text-xs font-label-sm text-on-primary-container uppercase tracking-widest">AI Code Analysis Platform</span>
+</div>
+<h1 class="font-h1 text-6xl text-on-background max-w-4xl mb-8 leading-[1.1]">Analyze code like a production incident room.</h1>
+<p class="font-body-lg text-xl text-on-surface-variant max-w-2xl">
+                Move from raw source to execution traces, test intelligence, performance grades, and AI insight cards without leaving the same interface.
+            </p>
+</header>
+<!-- Features/Capabilities Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+<div class="flex items-center gap-4 p-5 bg-white border border-surface-container-highest rounded-xl soft-shadow transition-all hover:border-primary-fixed-dim">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="terminal">terminal</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Code execution</span>
+</div>
+<div class="flex items-center gap-4 p-5 bg-white border border-surface-container-highest rounded-xl soft-shadow transition-all hover:border-primary-fixed-dim">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="bug_report">bug_report</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Static analysis</span>
+</div>
+<div class="flex items-center gap-4 p-5 bg-white border border-surface-container-highest rounded-xl soft-shadow transition-all hover:border-primary-fixed-dim">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="shield">shield</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Security scan</span>
+</div>
+<div class="flex items-center gap-4 p-5 bg-white border border-surface-container-highest rounded-xl soft-shadow transition-all hover:border-primary-fixed-dim">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface" data-icon="query_stats">query_stats</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Performance grade</span>
+</div>
+</section>
+<!-- Main Modules -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+<!-- Module 1: Code Source -->
+<div class="relative group h-full">
+<div class="h-full flex flex-col bg-white border border-surface-container-highest rounded-3xl overflow-hidden soft-shadow transition-all group-hover:border-primary-fixed-dim">
+<div class="relative h-80 bg-slate-50 border-b border-surface-container">
+<img class="w-full h-full object-cover opacity-90" data-alt="A professional software development environment with a clean, light-themed code editor interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVbBqkhlNgRizR3U1ASGT3AZa4UxeVShilyZrDmJe7ar_Fd9pBg-9xzQcEFYAav6z5PfyWQZegE5EjCnlnCEi0_hoPDUPabmK356MjbsIVpSiWBFfK2mmnfJH_YM2CMSos-ca8OEFxWxx7Zhs4VeNQpOFTBTI8ctwRp4TjPM-3RHO0RMqSKwInUHQiUCX953eLhh_HLMeh5RsBSaJo1grAl9JlB4Lbj2YnVSUiaT5gUFUXmtBOtCFHmTRVB0Ik5UMLmZ0JtUzOSJk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white/95 to-transparent"></div>
+<div class="absolute bottom-10 left-10 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="code_blocks">code_blocks</span>
+<h3 class="font-h2 text-h2 text-on-background">Code Source</h3>
+</div>
+</div>
+<div class="p-12 flex flex-col flex-grow">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed">
+                            Paste code into the Monaco editor and run focused analysis with your preferred profile. Python and JavaScript ready. Optimize logic and identify bottlenecks in real-time.
+                        </p>
+<div class="mt-auto">
+<button class="w-full py-5 bg-primary text-white font-bold rounded-xl hover:bg-opacity-90 transition-all flex items-center justify-center gap-3 active:scale-[0.98]">
+                                Launch Editor
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 2: Project Archive -->
+<div class="relative group h-full">
+<div class="h-full flex flex-col bg-white border border-surface-container-highest rounded-3xl overflow-hidden soft-shadow transition-all group-hover:border-primary-fixed-dim">
+<div class="relative h-80 bg-slate-50 border-b border-surface-container">
+<img class="w-full h-full object-cover opacity-90" data-alt="A clean, corporate project management dashboard with architectural diagrams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6q1uq2mAf-gH3HJ0FzEASf3PIsj9VzkTIUcqdda_A2Eec1g8yt8OFOWkh3DArEFZjnMHmrVpaosM0lo9IE9Lf4M6NvJC75RVjWz2Uz7JMm21hJc3Aakv8k8wUCGyIZ3PJSJXwlumBRY7zuLX9lSCI8_A1YpQ5BtlqzlSGlppWtVcf4CaZvtv1NHLz0wY8Q7asBa4AXxB7iNwzcvEUu81Vtk1bqUAifJOzSM6dk9HyI7XSeYaHopOpZoMfA9SI7ddbEDPfcudTmfE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white/95 to-transparent"></div>
+<div class="absolute bottom-10 left-10 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="folder_zip">folder_zip</span>
+<h3 class="font-h2 text-h2 text-on-background">Project Archive</h3>
+</div>
+</div>
+<div class="p-12 flex flex-col flex-grow">
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 leading-relaxed">
+                            Upload a ZIP archive to run live project analysis, testing, and architecture-aware review. Up to 50MB per upload. Automated structural scanning for complex repositories.
+                        </p>
+<div class="mt-auto">
+<button class="w-full py-5 border-2 border-outline bg-white text-primary font-bold rounded-xl hover:bg-surface-container-low transition-all flex items-center justify-center gap-3 active:scale-[0.98]">
+                                Upload Project
+                                <span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white text-on-background font-manrope text-sm w-full border-t border-surface-container-highest">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 max-w-7xl mx-auto w-full gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-xl font-bold text-primary">CodePulse</span>
+<p class="text-on-surface-variant text-center md:text-left">Engineered for architectural integrity and precision.</p>
+</div>
+<nav class="flex gap-10">
+<a class="text-on-surface-variant hover:text-primary font-medium transition-all" href="#">Documentation</a>
+<a class="text-on-surface-variant hover:text-primary font-medium transition-all" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-primary font-medium transition-all" href="#">Privacy</a>
+</nav>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors" data-icon="monitoring">monitoring</span>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 pb-10 text-center text-on-surface-variant opacity-60">
+<p>© 2024 CodePulse AI Analysis.</p>
+</div>
+</footer>
+</body></html>

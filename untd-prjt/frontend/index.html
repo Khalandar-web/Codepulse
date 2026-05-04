@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CodePulse - AI Code Analysis Platform</title>
+    <meta name="description" content="Premium AI-powered code analysis, testing, and performance profiling platform.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/editor/editor.main.min.css">
+    <link rel="stylesheet" href="/css/styles.css?v=51">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+    <div id="startup-splash" class="startup-splash" aria-hidden="true">
+        <div class="startup-splash-content">
+            <div class="logo-mark brand-logo startup-logo">
+                <svg viewBox="0 0 220 86" fill="none">
+                    <path class="logo-pulse-line" d="M8 43H58C60 43 61 40 61 37C62 30 64 27 66 43C68 61 71 58 72 43H84" stroke="url(#logoGradientSplash)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="logo-pulse-line delay" d="M136 43H148C150 43 151 40 151 37C152 30 154 27 156 43C158 61 161 58 162 43H212" stroke="url(#logoGradientSplash)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="logo-shield-wrap">
+                        <path class="logo-shield" d="M110 10C99 22 84 24 77 24V49C77 63 88 73 110 82C132 73 143 63 143 49V24C136 24 121 22 110 10Z" fill="white" stroke="url(#logoGradientSplash)" stroke-width="6" stroke-linejoin="round"/>
+                        <path class="logo-shield-pulse" d="M92 45H104L109 31L118 57L123 45H128" stroke="url(#logoGradientSplash)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                        <linearGradient id="logoGradientSplash" x1="8" y1="10" x2="212" y2="82" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1d4ed8"/>
+                            <stop offset="0.5" stop-color="#2f55b7"/>
+                            <stop offset="1" stop-color="#2563eb"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="startup-title">Code<span>Pulse</span></div>
+        </div>
+    </div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <header id="app-header">
+        <div class="header-left" id="logo-home">
+            <div class="logo-mark brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 220 86" fill="none">
+                    <path class="logo-pulse-line" d="M8 43H58C60 43 61 40 61 37C62 30 64 27 66 43C68 61 71 58 72 43H84" stroke="url(#logoGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path class="logo-pulse-line delay" d="M136 43H148C150 43 151 40 151 37C152 30 154 27 156 43C158 61 161 58 162 43H212" stroke="url(#logoGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g class="logo-shield-wrap">
+                        <path class="logo-shield" d="M110 10C99 22 84 24 77 24V49C77 63 88 73 110 82C132 73 143 63 143 49V24C136 24 121 22 110 10Z" fill="white" stroke="url(#logoGradient)" stroke-width="6" stroke-linejoin="round"/>
+                        <path class="logo-shield-pulse" d="M92 45H104L109 31L118 57L123 45H128" stroke="url(#logoGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="8" y1="10" x2="212" y2="82" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1d4ed8"/>
+                            <stop offset="0.5" stop-color="#2f55b7"/>
+                            <stop offset="1" stop-color="#2563eb"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div>
+                <div class="logo-text">Code<span class="accent">Pulse</span></div>
+                <div class="header-kicker">AI Code Analysis Platform</div>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <div class="tagline">Execution, testing, performance, and AI review in one premium workspace</div>
+            <nav class="tab-bar" id="results-nav" style="display:none;">
+                <button class="tab tab-btn active" data-view="execution">Overview</button>
+                <button class="tab tab-btn" data-view="performance">Performance</button>
+                <button class="tab tab-btn" data-view="testing">Testing</button>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="profile-menu" id="profile-menu" style="display:none;">
+                <button class="profile-trigger" id="profile-menu-btn" type="button" aria-expanded="false" aria-haspopup="true">
+                    <span class="status-dot" id="status-dot"></span>
+                    <span class="profile-avatar" id="profile-avatar-initial">U</span>
+                    <span class="material-symbols-outlined profile-chevron">expand_more</span>
+                    <span class="status-text" id="status-text">Ready</span>
+                </button>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="profile-card-head">
+                        <span class="profile-avatar profile-avatar-large" id="profile-avatar-large">U</span>
+                        <div>
+                            <div class="profile-name" id="profile-menu-name">Signed in</div>
+                            <div class="profile-email" id="profile-menu-email">CodePulse workspace</div>
+                        </div>
+                    </div>
+                    <button class="profile-menu-action" id="back-home-btn" style="display:none;">
+                        <span class="material-symbols-outlined">home</span>
+                        <span>Home</span>
+                    </button>
+                    <button class="profile-menu-action danger" id="logout-btn" style="display:none;">
+                        <span class="material-symbols-outlined">logout</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="content-viewport">
+        <section id="view-auth" class="view-transition auth-view">
+            <div class="auth-split">
+                <div class="auth-visual">
+                    <div class="auth-visual-inner">
+                    <div class="auth-brand">
+                        <div class="logo-mark brand-logo" aria-hidden="true">
+                            <svg viewBox="0 0 220 86" fill="none">
+                                <path class="logo-pulse-line" d="M8 43H58C60 43 61 40 61 37C62 30 64 27 66 43C68 61 71 58 72 43H84" stroke="url(#logoGradientAuth)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path class="logo-pulse-line delay" d="M136 43H148C150 43 151 40 151 37C152 30 154 27 156 43C158 61 161 58 162 43H212" stroke="url(#logoGradientAuth)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <g class="logo-shield-wrap">
+                                    <path class="logo-shield" d="M110 10C99 22 84 24 77 24V49C77 63 88 73 110 82C132 73 143 63 143 49V24C136 24 121 22 110 10Z" fill="white" stroke="url(#logoGradientAuth)" stroke-width="6" stroke-linejoin="round"/>
+                                    <path class="logo-shield-pulse" d="M92 45H104L109 31L118 57L123 45H128" stroke="url(#logoGradientAuth)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </g>
+                                <defs>
+                                    <linearGradient id="logoGradientAuth" x1="8" y1="10" x2="212" y2="82" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1d4ed8"/>
+                                        <stop offset="0.5" stop-color="#2f55b7"/>
+                                        <stop offset="1" stop-color="#2563eb"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="logo-text">Code<span class="accent">Pulse</span></h1>
+                            <div class="auth-brand-meta">Secure analysis workspace</div>
+                        </div>
+                    </div>
+                    <div class="auth-quote">
+                        <div class="auth-eyebrow">AI code quality command center</div>
+                        <h2>Sign in to inspect, test, and improve production code faster.</h2>
+                        <p>Run execution checks, security review, performance analysis, and AI recommendations from one focused workspace.</p>
+                    </div>
+
+                    <div class="auth-preview" aria-hidden="true">
+                        <div class="auth-preview-header">
+                            <span class="preview-dot preview-dot-red"></span>
+                            <span class="preview-dot preview-dot-amber"></span>
+                            <span class="preview-dot preview-dot-green"></span>
+                            <span class="preview-file">analysis.py</span>
+                        </div>
+                        <div class="auth-preview-body">
+                            <div class="preview-line wide"></div>
+                            <div class="preview-line medium"></div>
+                            <div class="preview-line short"></div>
+                            <div class="preview-result">
+                                <span class="material-symbols-outlined">verified</span>
+                                <div>
+                                    <strong>Ready for review</strong>
+                                    <small>Execution, testing, performance</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-proof-grid">
+                        <div class="auth-proof-item">
+                            <span class="material-symbols-outlined">shield_lock</span>
+                            <div>
+                                <strong>Private sessions</strong>
+                                <small>Token based access</small>
+                            </div>
+                        </div>
+                        <div class="auth-proof-item">
+                            <span class="material-symbols-outlined">speed</span>
+                            <div>
+                                <strong>Fast feedback</strong>
+                                <small>Multi-stage analysis</small>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="auth-form-container">
+                    <div class="auth-card">
+                        <div class="auth-card-badge">
+                            <span class="material-symbols-outlined">lock_open</span>
+                            Member access
+                        </div>
+                        <div class="auth-header">
+                            <h2>Welcome back</h2>
+                            <p>Use your workspace credentials to continue.</p>
+                        </div>
+                        
+                        <div class="auth-tabs">
+                            <button class="auth-tab active" data-mode="login">Log In</button>
+                            <button class="auth-tab" data-mode="register">Register</button>
+                        </div>
+                        
+                        <form id="auth-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="auth-username">Username</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">person</span>
+                                    <input type="text" id="auth-username" required placeholder="Enter your username" autocomplete="username">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="auth-password">Password</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">key</span>
+                                    <input type="password" id="auth-password" required placeholder="••••••••" autocomplete="current-password">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary auth-submit-btn" id="auth-submit-btn">
+                                Sign In
+                                <div class="btn-shimmer"></div>
+                            </button>
+                            <div id="auth-error" class="auth-error"></div>
+                        </form>
+                        <div class="auth-card-footer">
+                            <span class="material-symbols-outlined">encrypted</span>
+                            Credentials are sent only to your local CodePulse API.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-selection" class="view-transition hero-view" style="display:none;">
+            <div class="hero-shell">
+                <div class="hero-copy">
+                    <div class="hero-badge">Premium Dark Theme Workspace</div>
+                    <h1>Analyze code like a production incident room.</h1>
+                    <p>Move from raw source to execution traces, test intelligence, performance grades, and AI insight cards without leaving the same interface.</p>
+                    <div class="feature-pills">
+                        <div class="pill"><span class="material-symbols-outlined pill-icon">terminal</span>Code execution</div>
+                        <div class="pill"><span class="material-symbols-outlined pill-icon">bug_report</span>Static analysis</div>
+                        <div class="pill"><span class="material-symbols-outlined pill-icon">shield</span>Security scan</div>
+                        <div class="pill"><span class="material-symbols-outlined pill-icon">query_stats</span>Performance grade</div>
+                    </div>
+                </div>
+
+                <div class="selection-grid">
+                    <article class="selection-card panel" id="select-code">
+                        <div class="selection-icon">
+                            <span class="material-symbols-outlined">code_blocks</span>
+                        </div>
+                        <h3>Code Source</h3>
+                        <p>Paste code into the Monaco editor and run focused analysis with your preferred profile.</p>
+                        <div class="selection-meta">Python and JavaScript ready</div>
+                        <div class="btn-primary selection-cta">Launch Editor<div class="btn-shimmer"></div></div>
+                    </article>
+
+                    <article class="selection-card panel" id="select-project">
+                        <div class="selection-icon">
+                            <span class="material-symbols-outlined">folder_zip</span>
+                        </div>
+                        <h3>Project Archive</h3>
+                        <p>Upload a ZIP archive to run live project analysis, testing, and architecture-aware review.</p>
+                        <div class="selection-meta">Up to 50MB per upload</div>
+                        <div class="btn-primary selection-cta">Upload Project<div class="btn-shimmer"></div></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-execution" class="view-transition" style="display:none;">
+            <main id="app-main">
+                <section class="panel editor-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="material-symbols-outlined panel-icon">edit_square</span>
+                            Source Input
+                        </div>
+                        <div class="panel-actions">
+                            <div class="mode-toggle" id="mode-toggle">
+                                <button class="mode-btn active" data-mode="code">Code Editor</button>
+                                <button class="mode-btn" data-mode="project">Project Upload</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-subheader">
+                        <div class="profile-copy">
+                            <div class="profile-label">Analysis Profile</div>
+                            <p>Fast distributes work across focused stages and keeps the feedback loop tight.</p>
+                        </div>
+                        <select id="analysis-profile-select" class="glass-select profile-select">
+                            <option value="fast">Fast</option>
+                            <option value="balanced">Balanced</option>
+                            <option value="deep">Deep</option>
+                        </select>
+                    </div>
+
+                    <div id="editor-container" class="editor-container">
+                        <div class="editor-toolbar">
+                            <div class="editor-file">
+                                <span class="material-symbols-outlined">description</span>
+                                <span>buffer.py</span>
+                            </div>
+                            <select id="language-select" class="glass-select">
+                                <option value="python">Python</option>
+                                <option value="javascript">JavaScript</option>
+                            </select>
+                        </div>
+                        <div class="editor-stage">
+                            <div id="monaco-editor"></div>
+                        </div>
+                        <div class="editor-footer">
+                            <div class="editor-stats">
+                                <span>Live editor</span>
+                                <span class="divider">/</span>
+                                <span>Monaco</span>
+                                <span class="divider">/</span>
+                                <span>Ready for analysis</span>
+                            </div>
+                            <button id="code-analyze-btn" class="btn-primary">
+                                <span class="material-symbols-outlined btn-icon">rocket_launch</span>
+                                Run Analysis
+                                <div class="btn-shimmer"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="upload-container" class="upload-container" style="display:none;">
+                        <div class="upload-dropzone" id="upload-dropzone">
+                            <div class="upload-icon" id="upload-icon">
+                                <span class="material-symbols-outlined" id="upload-icon-glyph">cloud_upload</span>
+                            </div>
+                            <div id="upload-text">
+                                <h3>Drop project archive here</h3>
+                                <p>Supports `.zip` files up to 50MB. Click or drag to upload.</p>
+                            </div>
+                            <div id="upload-file-info" style="display:none;">
+                                <h3 id="upload-file-name">Archive ready</h3>
+                                <p id="upload-file-meta">Waiting for metadata</p>
+                            </div>
+                            <input type="file" id="project-file-input" accept=".zip" hidden>
+                        </div>
+
+                        <div id="project-info-card" class="project-info-card" style="display:none;">
+                            <div class="project-info-top">
+                                <div class="project-live">
+                                    <span class="status-dot" id="server-status-dot"></span>
+                                    <span id="server-status-label">Server Live</span>
+                                </div>
+                                <div id="project-port-display">:0</div>
+                            </div>
+                            <div class="stat-grid compact-grid">
+                                <div class="stat-card">
+                                    <div class="stat-label">Files</div>
+                                    <div class="stat-value" id="project-file-count">0</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-label">Type</div>
+                                    <div class="stat-value" id="project-type-display">Auto</div>
+                                </div>
+                            </div>
+                            <div class="server-controls">
+                                <button id="server-open-btn" class="btn-server btn-server-open" title="Open in browser">
+                                    <span class="material-symbols-outlined">open_in_new</span>
+                                    Open App
+                                </button>
+                                <button id="server-stop-btn" class="btn-server btn-server-stop" title="Stop server">
+                                    <span class="material-symbols-outlined">stop_circle</span>
+                                    Stop
+                                </button>
+                                <button id="server-start-btn" class="btn-server btn-server-start" style="display:none;" title="Restart server">
+                                    <span class="material-symbols-outlined">play_circle</span>
+                                    Start
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="project-file-tree" class="project-file-tree" style="display:none;">
+                            <div class="file-tree-header">
+                                <span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-violet);">folder_open</span>
+                                <span>Project Files</span>
+                                <span id="file-tree-count" class="file-tree-count">0 files</span>
+                            </div>
+                            <div id="file-tree-list" class="file-tree-list"></div>
+                        </div>
+
+                        <div class="upload-actions">
+                            <button id="project-analyze-btn" class="btn-primary">
+                                <span class="material-symbols-outlined btn-icon">play_arrow</span>
+                                Run Analysis
+                                <div class="btn-shimmer"></div>
+                            </button>
+                            <button id="upload-reset-btn" class="btn-secondary" style="display:none;">
+                                <span class="material-symbols-outlined btn-icon">refresh</span>
+                                New Upload
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel results-panel">
+                    <div class="panel-header">
+                        <div class="panel-title">
+                            <span class="material-symbols-outlined panel-icon">analytics</span>
+                            Analysis Report
+                        </div>
+                    </div>
+
+                    <div class="results-content">
+                        <div id="placeholder-state" class="placeholder-state">
+                            <div class="placeholder-icon-wrapper">
+                                <span class="material-symbols-outlined placeholder-icon">auto_awesome</span>
+                            </div>
+                            <h2>Ready to Analyze</h2>
+                            <p>Submit code or upload a project archive to unlock execution logs, tests, performance metrics, and AI-generated recommendations.</p>
+                            <div class="feature-pills">
+                                <div class="pill"><span class="material-symbols-outlined pill-icon">memory</span>Execution traces</div>
+                                <div class="pill"><span class="material-symbols-outlined pill-icon">psychology</span>AI insights</div>
+                                <div class="pill"><span class="material-symbols-outlined pill-icon">task_alt</span>Test coverage</div>
+                            </div>
+                        </div>
+
+                        <div id="loading-state" class="loading-state" style="display:none;">
+                            <div class="loading-header">
+                                <h2 class="boneyard-glow-text">Analyzing Source</h2>
+                                <p id="loading-stage">Initializing engines</p>
+                            </div>
+                            <div id="boneyard-mount" style="width: 100%;"></div>
+                        </div>
+
+                        <div id="report-content" style="display:none;"></div>
+                    </div>
+                </section>
+            </main>
+        </section>
+
+        <section id="view-performance" class="view-transition analysis-section" style="display:none;">
+            <div class="analysis-shell">
+                <div class="analysis-intro">
+                    <div class="hero-badge">Performance Analytics</div>
+                    <h2>Execution profile and complexity signals</h2>
+                    <p>Telemetry and inferred complexity metrics from the current run will appear here after analysis.</p>
+                </div>
+                <div id="performance-dashboard" class="performance-dashboard">
+                    <div class="empty-panel">
+                        <span class="material-symbols-outlined">speed</span>
+                        <p>Run analysis to populate performance metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-testing" class="view-transition analysis-section" style="display:none;">
+            <div class="analysis-shell testing-shell">
+                <div class="testing-header-row">
+                    <div class="testing-summary">
+                        <div>
+                            <h2>Test Execution</h2>
+                            <p id="test-suite-name">Ready for run</p>
+                        </div>
+                        <div class="testing-score">
+                            <span id="test-stability-score">0%</span>
+                            <small>Stability</small>
+                        </div>
+                    </div>
+                    <div class="testing-stats-cards" id="testing-stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Cases</div>
+                            <div class="stat-value" id="test-total-count">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Passed</div>
+                            <div class="stat-value" id="test-passed-count" style="color:var(--accent-emerald)">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Failed</div>
+                            <div class="stat-value" id="test-failed-count" style="color:var(--accent-rose)">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testing-main-grid">
+                    <section class="panel testing-preview-panel">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <span class="material-symbols-outlined panel-icon">checklist</span>
+                                Test Suite Results
+                            </div>
+                        </div>
+                        <div class="test-category-tabs">
+                            <button class="test-cat-tab active" data-category="all">All</button>
+                            <button class="test-cat-tab" data-category="Unit">Unit</button>
+                            <button class="test-cat-tab" data-category="Integration">Integration</button>
+                            <button class="test-cat-tab" data-category="BVA">BVA</button>
+                            <button class="test-cat-tab" data-category="ECP">ECP</button>
+                            <button class="test-cat-tab" data-category="Negative">Negative</button>
+                            <button class="test-cat-tab" data-category="Regression">Regression</button>
+                        </div>
+                        <div id="test-blocks-container" class="testing-blocks">
+                            <div class="empty-panel compact">
+                                <span class="material-symbols-outlined">verified_user</span>
+                                <p>No tests executed.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <aside class="testing-sidebar">
+                        <section class="panel">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <span class="material-symbols-outlined panel-icon">info</span>
+                                    Test Details
+                                </div>
+                            </div>
+                            <div id="test-details-container" class="results-content" style="padding:20px; min-height: 200px;">
+                                <p style="color:var(--text-muted); font-style:italic;">Select a test case to view detailed input/output context.</p>
+                            </div>
+                        </section>
+
+                        <section class="panel">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <span class="material-symbols-outlined panel-icon">description</span>
+                                    Source Context
+                                </div>
+                            </div>
+                            <div id="test-code-preview" class="code-output testing-preview" style="max-height: 350px; border:none; border-radius:0;">
+                                <p style="color:var(--text-muted); font-style:italic;">Code context will appear here after analysis...</p>
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="app-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">Code<span class="accent">Pulse</span></div>
+                <div class="footer-copyright">AI code analysis workspace for execution, testing, security, and performance review.</div>
+            </div>
+            <div class="footer-right">
+                <a class="footer-link" href="#view-selection">Workspace</a>
+                <a class="footer-link" href="#view-performance">Performance</a>
+                <a class="footer-link" href="#view-testing">Testing</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+    <script src="/js/boneyard.js?v=35"></script>
+    <script src="/js/editor.js?v=35"></script>
+    <script src="/js/report.js?v=35"></script>
+    <script src="/js/app.js?v=40"></script>
+</body>
+</html>

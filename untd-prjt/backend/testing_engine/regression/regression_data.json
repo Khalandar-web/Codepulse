@@ -1,0 +1,241 @@
+{
+  "9229330e567f3b8d": {
+    "language": "python",
+    "timestamp": 1775628797.3470821,
+    "results": [
+      {
+        "name": "test_normal_path_1",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "5",
+        "expected": "",
+        "actual": "120",
+        "message": "Factorial of 5 is correctly calculated as 120"
+      },
+      {
+        "name": "test_normal_path_2",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "3",
+        "expected": "",
+        "actual": "6",
+        "message": "Factorial of 3 is correctly calculated as 6"
+      },
+      {
+        "name": "test_bva_edge_1",
+        "category": "BVA",
+        "passed": true,
+        "input_data": "0",
+        "expected": "",
+        "actual": "1",
+        "message": "Factorial of 0 is correctly calculated as 1"
+      },
+      {
+        "name": "test_bva_edge_2",
+        "category": "BVA",
+        "passed": false,
+        "input_data": "-1",
+        "expected": "",
+        "actual": "1",
+        "message": "Factorial of negative numbers should not be 1, but an error or special handling"
+      },
+      {
+        "name": "test_ecp_partition_1",
+        "category": "ECP",
+        "passed": true,
+        "input_data": "1",
+        "expected": "",
+        "actual": "1",
+        "message": "Factorial of 1 is correctly calculated as 1"
+      },
+      {
+        "name": "test_ecp_partition_2",
+        "category": "ECP",
+        "passed": true,
+        "input_data": "10",
+        "expected": "",
+        "actual": "3628800",
+        "message": "Factorial of a large number is correctly calculated"
+      },
+      {
+        "name": "test_negative_input_type",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "\"hello\"",
+        "expected": "",
+        "actual": "TypeError: can't multiply sequence by non-int of type 'str'",
+        "message": "Passing a string to the factorial function raises a TypeError"
+      },
+      {
+        "name": "test_negative_input_null",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "null",
+        "expected": "",
+        "actual": "TypeError: unsupported operand type(s) for <=: 'NoneType' and 'int'",
+        "message": "Passing null to the factorial function raises a TypeError"
+      }
+    ]
+  },
+  "871c52222c7a5ed9": {
+    "language": "python",
+    "timestamp": 1777006752.6005962,
+    "results": []
+  },
+  "076bef38a89920d0": {
+    "language": "javascript",
+    "timestamp": 1775797862.5803146,
+    "results": [
+      {
+        "name": "test_normal_play_card",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "playCard(room.game, 'player1', 'card1', 'red')",
+        "expected": "",
+        "actual": "Card played successfully",
+        "message": "Play card with valid input"
+      },
+      {
+        "name": "test_normal_draw_card",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "drawPlayerCard(room.game, 'player1')",
+        "expected": "",
+        "actual": "Card drawn successfully",
+        "message": "Draw card with valid input"
+      },
+      {
+        "name": "test_bva_play_card_invalid_card_id",
+        "category": "BVA",
+        "passed": false,
+        "input_data": "playCard(room.game, 'player1', 'invalid_card_id', 'red')",
+        "expected": "",
+        "actual": "Error: Card not found",
+        "message": "Play card with invalid card ID"
+      },
+      {
+        "name": "test_bva_draw_card_invalid_player_id",
+        "category": "BVA",
+        "passed": false,
+        "input_data": "drawPlayerCard(room.game, 'invalid_player_id')",
+        "expected": "",
+        "actual": "Error: Player not found",
+        "message": "Draw card with invalid player ID"
+      },
+      {
+        "name": "test_ecp_play_card_valid_color",
+        "category": "ECP",
+        "passed": true,
+        "input_data": "playCard(room.game, 'player1', 'card1', 'red')",
+        "expected": "",
+        "actual": "Card played successfully",
+        "message": "Play card with valid color"
+      },
+      {
+        "name": "test_ecp_play_card_invalid_color",
+        "category": "ECP",
+        "passed": false,
+        "input_data": "playCard(room.game, 'player1', 'card1', 'invalid_color')",
+        "expected": "",
+        "actual": "Error: Invalid color",
+        "message": "Play card with invalid color"
+      },
+      {
+        "name": "test_negative_play_card_null_card_id",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "playCard(room.game, 'player1', null, 'red')",
+        "expected": "",
+        "actual": "Error: Card ID cannot be null",
+        "message": "Play card with null card ID"
+      },
+      {
+        "name": "test_negative_draw_card_null_player_id",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "drawPlayerCard(room.game, null)",
+        "expected": "",
+        "actual": "Error: Player ID cannot be null",
+        "message": "Draw card with null player ID"
+      }
+    ]
+  },
+  "21b1dc14c494d02a": {
+    "language": "python",
+    "timestamp": 1776071076.9127672,
+    "results": [
+      {
+        "name": "test_normal_hello",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "world",
+        "message": "The function printed 'world' as expected."
+      },
+      {
+        "name": "test_normal_multiple_calls",
+        "category": "Normal",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "world\nworld",
+        "message": "The function printed 'world' twice when called multiple times."
+      },
+      {
+        "name": "test_bva_empty_input",
+        "category": "BVA",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "world",
+        "message": "The function printed 'world' even with no input."
+      },
+      {
+        "name": "test_bva_repeated_calls",
+        "category": "BVA",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "world\nworld\nworld",
+        "message": "The function printed 'world' multiple times when called repeatedly."
+      },
+      {
+        "name": "test_ecp_no_args",
+        "category": "ECP",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "world",
+        "message": "The function printed 'world' when no arguments were passed."
+      },
+      {
+        "name": "test_ecp_no_return",
+        "category": "ECP",
+        "passed": true,
+        "input_data": "None",
+        "expected": "",
+        "actual": "None",
+        "message": "The function did not return any value, only printed 'world'."
+      },
+      {
+        "name": "test_negative_invalid_call",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "hello('arg')",
+        "expected": "",
+        "actual": "TypeError: hello() takes no arguments (1 given)",
+        "message": "The function threw an exception when called with an argument."
+      },
+      {
+        "name": "test_negative_invalid_context",
+        "category": "Negative",
+        "passed": false,
+        "input_data": "hello() in a non-Python context",
+        "expected": "",
+        "actual": "SyntaxError: invalid syntax",
+        "message": "The function is not defined in a non-Python context."
+      }
+    ]
+  }
+}
