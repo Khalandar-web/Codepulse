@@ -2,6 +2,13 @@ FROM python:3.14-slim
 
 WORKDIR /app
 
+# 🔥 Install required build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY . .
 
 RUN pip install --upgrade pip
